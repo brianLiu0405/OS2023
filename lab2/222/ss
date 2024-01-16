@@ -1,0 +1,11 @@
+size_t pos = policies.find(",");
+        string policy_str = policies.substr(0, pos);
+        int policy = (policy_str == "FIFO") ? SCHED_FIFO : SCHED_OTHER;
+        thread_info[i].sched_policy = 
+        policies.erase(0, pos + 1);
+
+        pos = priorities.find(",");
+        string priority_str = priorities.substr(0, pos);
+        int priority = stoi(priority_str);
+
+        priorities.erase(0, pos + 1);
